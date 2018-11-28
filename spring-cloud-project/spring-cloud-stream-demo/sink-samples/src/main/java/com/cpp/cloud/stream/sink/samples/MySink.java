@@ -1,7 +1,7 @@
 package com.cpp.cloud.stream.sink.samples;
 
 import org.springframework.cloud.stream.annotation.Input;
-import org.springframework.messaging.MessageChannel;
+import org.springframework.messaging.SubscribableChannel;
 
 /**
  * 自定义sink
@@ -15,5 +15,5 @@ public interface MySink {
     String INPUT = "myInput";
 
     @Input(MySink.INPUT)
-    MessageChannel myInput();
+    SubscribableChannel myInput();
 }

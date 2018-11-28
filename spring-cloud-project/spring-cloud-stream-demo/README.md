@@ -16,3 +16,11 @@
 如下是官方文档提供的架构图所示：
 
 ![spring-cloud-stream架构](image/spring-cloud-stream架构.png)
+
+Spring Cloud Stream由一个中间件中立的核组成。应用通过Spring Cloud Stream插入的input(相当于消费者consumer，它是从队列中接收消息的)和output(相当于生产者producer，它是从队列中发送消息的。)通道与外界交流。
+
+通道通过指定中间件的Binder实现与外部代理连接。业务开发者不再关注具体消息中间件，只需关注Binder对应用程序提供的抽象概念来使用消息中间件实现业务即可。
+
+# 各类stream类比
+
+![stream](image/stream.png)

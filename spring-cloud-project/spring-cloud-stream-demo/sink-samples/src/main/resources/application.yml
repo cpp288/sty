@@ -7,6 +7,8 @@ spring:
   cloud:
     stream:
       bindings:
+        myInput:   # 自定义input
+          destination: consumerTest
         input:
           destination: test     # exchange名称，交换模式默认是topic
   rabbitmq:

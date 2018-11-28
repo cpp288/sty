@@ -18,8 +18,13 @@ public class ProducerController {
     @Resource
     private SendService sendService;
 
-    @RequestMapping("/send/{msg}")
-    public void send(@PathVariable String msg) {
-        sendService.sendMsg(msg);
+    @RequestMapping("/send01/{msg}")
+    public void send01(@PathVariable String msg) {
+        sendService.sendBySource(msg);
+    }
+
+    @RequestMapping("/send02/{msg}")
+    public void send02(@PathVariable String msg) {
+        sendService.sendByMySource(msg);
     }
 }

@@ -10,11 +10,26 @@ import org.springframework.cloud.stream.messaging.Sink;
  * @author chenjian
  * @date 2018-11-28 15:12
  */
-@EnableBinding(Sink.class)
+@EnableBinding({Sink.class, MySink.class})
 public class ReceiveService {
 
+    /**
+     * 默认 sink
+     *
+     * @param msg
+     */
     @StreamListener(Sink.INPUT)
     public void receive(String msg) {
-        System.out.println(msg);
+        System.out.printf("[sink]接收到消息：%s\n", msg);
+    }
+
+    /**
+     * 自定义 sink
+     *
+     * @param msg
+     */
+    @StreamListener(MySink.INPUT)
+    public void receiveMyInput(String msg) {
+        System.out.printf("[mysink]接收到消息：%s\n", msg);
     }
 }

@@ -8,9 +8,11 @@ spring:
     stream:
       bindings:
         myInput:   # 自定义input
-          destination: consumerTest
+          destination: customTest
         input:
           destination: test     # exchange名称，交换模式默认是topic
+          consumer:
+            acknowledge-mode: manual
   rabbitmq:
     addresses: amqp://127.0.0.1:5672
     username: guest

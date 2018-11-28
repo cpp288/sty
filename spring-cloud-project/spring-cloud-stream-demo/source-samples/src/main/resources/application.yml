@@ -8,7 +8,7 @@ spring:
     stream:
       bindings:
         myOutput:   # 自定义output
-          destination: consumerTest
+          destination: customTest
           content-type: application/json
         output:
           destination: test     # exchange名称，交换模式默认是topic

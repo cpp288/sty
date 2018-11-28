@@ -10,9 +10,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @date 2018-11-28 13:50
  */
 @SpringBootApplication
-public class RabbitMqSourceApplication {
+public class SourceSamplesApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(RabbitMqSourceApplication.class, args);
+        SpringApplication.run(SourceSamplesApplication.class, args);
     }
 }

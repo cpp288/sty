@@ -13,6 +13,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>source-samples</module>
+        <module>sink-samples</module>
     </modules>
 
 

@@ -1,0 +1,16 @@
+server:
+  port: 8888
+
+spring:
+  application:
+    name: sink-samples
+  cloud:
+    stream:
+      bindings:
+        input:
+          destination: test     # exchange名称，交换模式默认是topic
+  rabbitmq:
+    addresses: amqp://127.0.0.1:5672
+    username: guest
+    password: guest
+    virtual-host: /

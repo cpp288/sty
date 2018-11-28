@@ -1,0 +1,17 @@
+server:
+  port: 7777
+
+spring:
+  application:
+    name: source-samples
+  cloud:
+    stream:
+      bindings:
+        output:
+          destination: test     # exchange名称，交换模式默认是topic
+          content-type: application/json
+  rabbitmq:
+    addresses: amqp://127.0.0.1:5672
+    username: guest
+    password: guest
+    virtual-host: /

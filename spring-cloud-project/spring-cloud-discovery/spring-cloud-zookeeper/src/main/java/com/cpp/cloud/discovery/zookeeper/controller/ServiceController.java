@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * 测试
+ * discovery服务相关数据接口
  *
  * @author chenjian
  * @date 2018-11-29 10:17

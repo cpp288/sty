@@ -16,7 +16,7 @@ spring cloud 服务注册中心
 | 适用规模      | 20 K ~ 30 K 实例（节点）                                | 10K ~ 20K 实例（节点）       | < 3K 实例（节点）         |
 | 性能问题      | 简单的更新机制、复杂设计、规模较大时 GC 频繁            | 扩容麻烦、规模较大时 GC 频繁 | 3K 节点以上，更新列表缓慢 |
 
-## zookeeper
+## Zookeeper
 ### 注意点
 引用依赖的时候，由于原先依赖的是zookeeper3.5.x，这个版本是beta版本，需要排除引用3.4.x，spring官网有说明
 ```xml
@@ -48,6 +48,12 @@ spring cloud 服务注册中心
 相关博客：
 1. [使用Spring Cloud Zookeeper + Feign实现服务发现](https://www.cnblogs.com/karascanvas/p/7521942.html)
 
-## eureka
+## Eureka
 使用的是集群部署的模式，注意的是：当第一个eureka server启动的时候会报错，是因为注册不到其它两台server，可忽略
 
+## Consul
+不做演示demo
+
+参考博客
+1. https://www.cnblogs.com/yjmyzz/p/replace-eureka-with-consul.html
+1. 参考spring官方文档

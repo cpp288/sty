@@ -47,3 +47,7 @@ spring cloud 服务注册中心
 
 相关博客：
 1. [使用Spring Cloud Zookeeper + Feign实现服务发现](https://www.cnblogs.com/karascanvas/p/7521942.html)
+
+## eureka
+使用的是集群部署的模式，注意的是：当第一个eureka server启动的时候会报错，是因为注册不到其它两台server，可忽略
+

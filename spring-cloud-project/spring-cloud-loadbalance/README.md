@@ -1,14 +1,14 @@
 # 介绍
 主要整理了spring cloud做负载均衡的原理机制
 
-## RestTemplate
+# RestTemplate
 Spring 核心 HTTP 消息转换器 `HttpMessageConverter`
 
 REST 自描述消息：媒体类型`MediaType`， text/html;text/xml;application/json
 
 HTTP 协议特点：纯文本协议，自我描述
 
-### `HttpMessageConverter` 分析
+## `HttpMessageConverter` 分析
 判断是否可读可写
 ```java
 public interface HttpMessageConverter<T> {
@@ -36,7 +36,7 @@ public interface HttpMessageConverter<T> {
 ```
 上面代码中的`HttpInputMessage`类似于Servlet中的`HttpServletRequest`
 
-### `RestTemplate` 在 `HttpMessageConverter` 设计
+## `RestTemplate` 在 `HttpMessageConverter` 设计
 `RestTemplate` 利用 `HttpMessageConverter` 对一定媒体类型序列化和反序列化
 
 ```java
@@ -86,7 +86,9 @@ public class RestTemplate extends InterceptingHttpAccessor implements RestOperat
 }
 ```
 
-## ribbon
+# ribbon
+ribbon是一种客户端负载均衡策略
+
 ribbon就是基于 `RestTemplate` ，通过实现 `ClientHttpRequestInterceptor` 来进行拦截，提供各种负载均衡的能力
 
 可以查看 `RestTemplate` 的父类 `InterceptingHttpAccessor`中：
@@ -97,3 +99,8 @@ public abstract class InterceptingHttpAccessor extends HttpAccessor {
 	
 }
 ```
+
+## 负载均衡策略
+ribbon内置了很多策略，实现了`IRule`，我们可以通过继承`AbstractLoadBalancerRule`来自定义相关的策略
+
+ribbon还提供了PING策略，来判断服务是否可用，默认是不开启的，接口`IPing`

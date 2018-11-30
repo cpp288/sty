@@ -73,6 +73,12 @@ public class CustomLBController {
         return restTemplate.getForObject(targetUrl + "/lb/say?message=" + message, String.class);
     }
 
+    /**
+     * 被调用的接口，实际应用中肯定是不同的服务实例
+     *
+     * @param message
+     * @return
+     */
     @GetMapping("/say")
     public String say(@RequestParam String message) {
         System.out.printf("接收到消息：message -> %s\n", message);

@@ -84,9 +84,8 @@ public class LoadBalancedRequestInterceptor implements ClientHttpRequestIntercep
         // 服务器列表快照
         List<String> targetUrls = new LinkedList<>(targetUrlsCache.get(serviceName));
         int size = targetUrls.size();
-        // size =3 , index =0 -2
+        // 随机选择其中一台服务器
         int index = new Random().nextInt(size);
-        // 选择其中一台服务器
         String targetURL = targetUrls.get(index);
         // 最终服务器 URL
         String actualURL = targetURL + "/" + uri + "?" + requestURI.getQuery();

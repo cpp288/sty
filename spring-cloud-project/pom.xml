@@ -15,6 +15,7 @@
         <module>spring-cloud-stream-demo</module>
         <module>spring-cloud-discovery</module>
         <module>spring-cloud-loadbalance</module>
+        <module>spring-cloud-hystrix</module>
     </modules>
 
     <properties>

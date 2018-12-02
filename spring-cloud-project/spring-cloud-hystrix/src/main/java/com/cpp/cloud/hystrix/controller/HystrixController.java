@@ -19,6 +19,13 @@ public class HystrixController {
 
     private final static Random RANDOM = new Random();
 
+    /**
+     * 使用hystrix的方式进行熔断操作
+     *
+     * @param message
+     * @return
+     * @throws InterruptedException
+     */
     @HystrixCommand(fallbackMethod = "errorContent",
             commandProperties = {
                     @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "100")

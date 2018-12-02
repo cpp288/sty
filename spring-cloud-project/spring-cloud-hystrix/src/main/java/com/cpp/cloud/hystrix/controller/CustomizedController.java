@@ -1,5 +1,6 @@
 package com.cpp.cloud.hystrix.controller;
 
+import com.cpp.cloud.hystrix.annotation.CircuitBreaker;
 import com.cpp.cloud.hystrix.interceptor.CustomizedControllerAdvice;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -67,6 +68,22 @@ public class CustomizedController {
             throw e;
         }
         return returnValue;
+    }
+
+    /**
+     * 高级熔断版本（注解超时、并发控制）
+     * 通过注解来设置超时时间、并发数量，用aop的方式进行切面限制
+     *
+     * @param message
+     * @return
+     * @throws Exception
+     * @see CircuitBreaker
+     * @see com.cpp.cloud.hystrix.aop.CustomizedControllerAspect
+     */
+    @GetMapping(value = "/advanced/say")
+    @CircuitBreaker(timeout = 100, concurrent = 1)
+    public String advancedSay(@RequestParam String message) throws Exception {
+        return doSay(message);
     }
 
     /**

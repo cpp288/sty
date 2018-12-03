@@ -37,9 +37,9 @@ OpenFeign：灵感来自于 JAX-RS（Java REST 标准），[官网](https://gith
 
 JAX-RS：[Java REST 标准](https://github.com/mercyblitz/jsr/tree/master/REST)，可移植性高
 
-| 技术栈             | HTTP 方法              | 变量路径        | 请求参数        | 自描述消息                                            |
-| ------------------ | ---------------------- | --------------- | --------------- | ----------------------------------------------------- |
-| JAX-RS             | `@GET`                 | `@PathParam`    | `@FormParam`    | `@Produces("application/widgets+xml")`                  |
-| Spring Web MVC     | `@GetMapping`          | `@PathVariable` | `@RequestParam` | `@RequestMapping(produces="application/widgets+xml")` |
-| OpenFeign          | `@RequestLine("GET...")` | `@Param`        | `@Param`        | `@Headers("Content-Type: application/json")`      |
-| Spring Cloud Feign | `@GetMapping`          | `@PathVariable` | `@RequestParam` | `@RequestMapping(produces="application/widgets+xml")`   |
+|技术栈|HTTP 方法|变量路径|请求参数|自描述消息|
+| --- | --- | --- | --- | --- |
+|JAX-RS|`@GET`|`@PathParam`|`@FormParam`|`@Produces("application/widgets+xml")`|
+|Spring Web MVC|`@GetMapping`|`@PathVariable`|`@RequestParam`|`@RequestMapping(produces="application/widgets+xml")`|
+|OpenFeign|`@RequestLine("GET...")`|`@Param`|`@Param`|`@Headers("Content-Type: application/json")`|
+|Spring Cloud Feign|`@GetMapping`|`@PathVariable`|`@RequestParam`|`@RequestMapping(produces="application/widgets+xml")`|

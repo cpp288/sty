@@ -1,6 +1,14 @@
 # 介绍
 
+feign默认集成了ribbon作为负载均衡
+
 * 基于spring cloud feign实现服务调用功能
+* 自实现 feign 功能（feign-customized模块）
+    * `@EnableRestClient` 注解模块驱动，相当于 Feign 中的 `@EnableFeignClients`
+    * `@RestClient` 绑定客户端，指定应用名称，相当于 Feign 中的 `@FeignClient`
+    * 客户端接口指定请求映射 `@RequestMapping`
+    * 客户端接口指定请求参数 `@RequestParam` `@RequestBody`
+    * 使用 `@Autowired` 注入接口，由代理类执行
 
 ## 服务调用引入背景
 `RestTemplate` 限制

@@ -17,7 +17,7 @@ public interface ServerApi {
      * @param message
      * @return
      */
-    @GetMapping(value = "/say")
+    @GetMapping(value = "/feign/say")
     String say(@RequestParam String message);
 
     /**
@@ -26,6 +26,6 @@ public interface ServerApi {
      * @param request
      * @return
      */
-    @PostMapping(value = "/save")
+    @PostMapping(value = "/feign/save")
     SaveTestResponse save(@RequestBody SaveTestRequest request);
 }

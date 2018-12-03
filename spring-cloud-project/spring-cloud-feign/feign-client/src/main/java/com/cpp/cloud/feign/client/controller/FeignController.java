@@ -18,12 +18,12 @@ public class FeignController {
     @Autowired
     private ServerApi serverApi;
 
-    @GetMapping(value = "/say")
+    @GetMapping(value = "/feign/say")
     public String say(@RequestParam String message) {
         return serverApi.say(message);
     }
 
-    @PostMapping(value = "/save")
+    @PostMapping(value = "/feign/save")
     public SaveTestResponse save(@RequestBody SaveTestRequest request) {
         return serverApi.save(request);
     }

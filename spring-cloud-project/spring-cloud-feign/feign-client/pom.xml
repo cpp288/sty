@@ -41,8 +41,9 @@
         </dependency>
 
         <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-openfeign</artifactId>
+            <groupId>com.cpp</groupId>
+            <artifactId>feign-server-api</artifactId>
+            <version>1.0.0</version>
         </dependency>
     </dependencies>
 </project>

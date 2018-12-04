@@ -9,6 +9,8 @@ feign默认集成了ribbon作为负载均衡
     * 客户端接口指定请求映射 `@RequestMapping`
     * 客户端接口指定请求参数 `@RequestParam` `@RequestBody`
     * 使用 `@Autowired` 注入接口，由代理类执行
+* feign的配置
+    * 使用 requestInterceptors 配置（feign调用之前拦截）统一设置 header
 
 ## 服务调用引入背景
 `RestTemplate` 限制

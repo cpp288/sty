@@ -10,6 +10,7 @@
     <modules>
         <module>java-8-concurrency</module>
         <module>spring-cloud-project</module>
+        <module>base</module>
     </modules>
 
     <parent>

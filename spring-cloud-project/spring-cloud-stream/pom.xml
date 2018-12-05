@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>spring-cloud-stream-demo</artifactId>
+    <artifactId>spring-cloud-stream</artifactId>
     <packaging>pom</packaging>
     <modules>
         <module>source-samples</module>

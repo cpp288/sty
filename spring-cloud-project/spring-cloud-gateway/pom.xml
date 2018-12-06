@@ -13,6 +13,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>customized-gateway</module>
+        <module>zuul</module>
     </modules>
 
 

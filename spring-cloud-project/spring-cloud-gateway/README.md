@@ -12,3 +12,14 @@ spring cloud zuul是基于servlet的方式实现的
 4. 组装参数、请求体、请求头，通过 RestTemplate 进行请求
 
 具体实现代码：GatewayServlet
+
+依赖组件：
+* 模块装配（`@EnableZuulProxy` 配合注解：`@Import`）
+* 服务发现（zookeeper、eureka）
+* 服务路由（URI映射目的服务）
+* 负载均衡（ribbon）
+* 服务熔断（hystrix，可选）
+
+自实现负载均衡：
+1. 通过实现ribbon的 `ILoadBalancer` 接口，或者其子类（如： `BaseLoadBalancer` ）；
+2. 通过实现ribbon的 `IRule` 来定义负载均衡规则；

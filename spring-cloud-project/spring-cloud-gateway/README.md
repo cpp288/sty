@@ -23,3 +23,8 @@ spring cloud zuul是基于servlet的方式实现的
 自实现负载均衡：
 1. 通过实现ribbon的 `ILoadBalancer` 接口，或者其子类（如： `BaseLoadBalancer` ）；
 2. 通过实现ribbon的 `IRule` 来定义负载均衡规则；
+
+## zuul
+相关代码查看zuul模块
+
+官方文档：https://cloud.spring.io/spring-cloud-static/spring-cloud-netflix/2.1.0.M3/single/spring-cloud-netflix.html#netflix-zuul-starter

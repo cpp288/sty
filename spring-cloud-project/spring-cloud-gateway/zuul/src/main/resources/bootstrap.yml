@@ -25,3 +25,10 @@ zuul:
       serviceId: spring-cloud-ribbon-server
   retryable: true
   ignored-services: '*'
+
+# 将 actuator 监控全部暴露
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

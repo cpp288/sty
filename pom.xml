@@ -11,6 +11,7 @@
         <module>java-8-concurrency</module>
         <module>spring-cloud-project</module>
         <module>base</module>
+        <module>sharding-jdbc-simples</module>
     </modules>
 
     <parent>

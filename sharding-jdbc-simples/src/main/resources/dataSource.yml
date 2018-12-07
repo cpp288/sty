@@ -1,0 +1,25 @@
+dataSources:
+  ds0: !!com.alibaba.druid.pool.DruidDataSource
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://106.12.95.51:3306/test01
+    username: root
+    password: hello123
+  ds1: !!com.alibaba.druid.pool.DruidDataSource
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://106.12.95.51:3306/test02
+    username: root
+    password: hello123
+
+shardingRule:
+  tables:
+    sys_user:
+      actualDataNodes: ds${0..1}.sys_user${0..1}
+      databaseStrategy: # 分库策略
+        inline:
+          shardingColumn: id
+          algorithmExpression: ds${id % 2}
+      tableStrategy:  # 分表策略
+        inline:
+          shardingColumn: id
+          algorithmExpression: sys_user${id % 2}
+      keyGeneratorColumnName: id

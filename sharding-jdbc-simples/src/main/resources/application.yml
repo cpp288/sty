@@ -1,0 +1,9 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: sharding-jdbc-simples
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.cpp.sharding.jdbc.simples.entity

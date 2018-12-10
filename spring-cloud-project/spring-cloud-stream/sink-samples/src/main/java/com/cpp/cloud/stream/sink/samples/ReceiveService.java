@@ -1,8 +1,8 @@
 package com.cpp.cloud.stream.sink.samples;
 
-import org.springframework.cloud.stream.annotation.EnableBinding;
 import org.springframework.cloud.stream.annotation.StreamListener;
 import org.springframework.cloud.stream.messaging.Sink;
+import org.springframework.stereotype.Service;
 
 /**
  * 接收服务
@@ -10,7 +10,7 @@ import org.springframework.cloud.stream.messaging.Sink;
  * @author chenjian
  * @date 2018-11-28 15:12
  */
-@EnableBinding({Sink.class, MySink.class})
+@Service
 public class ReceiveService {
 
     /**

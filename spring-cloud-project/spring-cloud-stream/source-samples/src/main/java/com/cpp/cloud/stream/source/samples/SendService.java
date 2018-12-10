@@ -1,9 +1,8 @@
 package com.cpp.cloud.stream.source.samples;
 
-import com.cpp.cloud.stream.source.samples.MySource;
-import org.springframework.cloud.stream.annotation.EnableBinding;
 import org.springframework.cloud.stream.messaging.Source;
 import org.springframework.integration.support.MessageBuilder;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 
@@ -13,7 +12,7 @@ import javax.annotation.Resource;
  * @author chenjian
  * @date 2018-11-28 14:42
  */
-@EnableBinding({Source.class, MySource.class})
+@Service
 public class SendService {
 
     @Resource

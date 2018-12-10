@@ -37,3 +37,6 @@ RequestHandledEvent | FrameworkServlet#publishRequestHandledEvent()
 
 ## 自实现customized-bus
 基于Spring的事件机制，通过http方式进行远程通信
+
+整体架构：
+![架构](image/自实现架构.png)

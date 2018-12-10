@@ -39,6 +39,12 @@
                     <debug>true</debug>
                     <debuglevel>lines,vars,source</debuglevel>
                     <compilerArgs>
+                        <!--
+                            解决接口获取不到方法参数名称的问题：
+                            * 指导文章 https://docs.oracle.com/javase/tutorial/reflect/member/methodparameterreflection.html
+                            * Java 8+ 增加 javac -parameters 参数（必须是java8+）
+                            * 如果不增加参数的话，-parameters 编译参数，Parameter#getName() 方法 “arg0”
+                        -->
                         <arg>-parameters</arg>
                     </compilerArgs>
                 </configuration>

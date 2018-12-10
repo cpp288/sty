@@ -40,3 +40,10 @@ RequestHandledEvent | FrameworkServlet#publishRequestHandledEvent()
 
 整体架构：
 ![架构](image/自实现架构.png)
+
+## spring cloud bus
+官方实现这里就不写demo了，可以参考：
+* 官网
+* 相关博客
+    * https://blog.csdn.net/BuquTianya/article/details/78698755
+    * https://www.jianshu.com/p/093ed9816993

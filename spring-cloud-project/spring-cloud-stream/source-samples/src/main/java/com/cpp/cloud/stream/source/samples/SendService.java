@@ -25,7 +25,8 @@ public class SendService {
     }
 
     public void sendByMySource(String message) {
-        mySource.myOutput().send(MessageBuilder.withPayload(message).build());
+        mySource.myOutput().send(MessageBuilder.withPayload(message)
+                .setHeader("charset-encoding", "utf-8").build());
     }
 
 }

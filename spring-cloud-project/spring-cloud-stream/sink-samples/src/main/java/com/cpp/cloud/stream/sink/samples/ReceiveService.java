@@ -2,6 +2,8 @@ package com.cpp.cloud.stream.sink.samples;
 
 import org.springframework.cloud.stream.annotation.StreamListener;
 import org.springframework.cloud.stream.messaging.Sink;
+import org.springframework.messaging.Message;
+import org.springframework.messaging.MessageHeaders;
 import org.springframework.stereotype.Service;
 
 /**
@@ -29,7 +31,11 @@ public class ReceiveService {
      * @param msg
      */
     @StreamListener(MySink.INPUT)
-    public void receiveMyInput(String msg) {
-        System.out.printf("[mysink]接收到消息：%s\n", msg);
+    public void receiveMyInput(Message<String> msg) {
+        // 获取消息体
+        String message = msg.getPayload();
+        // 获取消息头
+        MessageHeaders headers = msg.getHeaders();
+        System.out.printf("[mysink]接收到消息：%s\n", message);
     }
 }

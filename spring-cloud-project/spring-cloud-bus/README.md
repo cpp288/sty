@@ -34,3 +34,6 @@ RequestHandledEvent | FrameworkServlet#publishRequestHandledEvent()
 
 #### 事件监听器
 所有 Spring 事件监听器实现 `org.springframework.context.ApplicationListener`
+
+## 自实现customized-bus
+基于Spring的事件机制，通过http方式进行远程通信

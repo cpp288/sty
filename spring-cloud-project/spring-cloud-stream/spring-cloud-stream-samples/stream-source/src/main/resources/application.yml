@@ -21,7 +21,7 @@ spring:
             # 指定参与消息分区的消费端节点数量为2个
             partitionCount: 2
             # 表示只有分区ID为1的消费端能接收到信息，这里可以自定义分区策略
-            partitionKeyExpression: payload.id % 2
+            partitionKeyExpression: payload.id % ${spring.cloud.stream.bindings.test-output.producer.partitionCount}
         test-input:
           destination: testExchange2
           group: testQueue2

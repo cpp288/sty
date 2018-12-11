@@ -29,6 +29,8 @@ spring:
         test-input:
           destination: testExchange2
           group: testQueue2
+        rocket-output:
+          binder: rocket
       # 配置多个消息队列服务
 #      binders:
 #        rabbit1:

@@ -19,8 +19,13 @@ public interface MessageService {
 
     String TEST_OUTPUT = "test-output";
 
+    String ROCKET_INPUT = "rocket-input";
+
     @Input(MessageService.TEST_INPUT)
     SubscribableChannel testInput();
+
+    @Input(MessageService.ROCKET_INPUT)
+    SubscribableChannel rocketInput();
 
     @Output(MessageService.TEST_OUTPUT)
     MessageChannel testOutput();

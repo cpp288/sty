@@ -22,5 +22,11 @@
             <artifactId>stream-common</artifactId>
             <version>1.0.0</version>
         </dependency>
+
+        <dependency>
+            <groupId>com.cpp</groupId>
+            <artifactId>spring-cloud-starter-stream-rocket</artifactId>
+            <version>1.0.0</version>
+        </dependency>
     </dependencies>
 </project>

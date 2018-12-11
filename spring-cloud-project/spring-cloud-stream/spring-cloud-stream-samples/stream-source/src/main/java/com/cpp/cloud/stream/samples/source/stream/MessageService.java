@@ -17,10 +17,15 @@ public interface MessageService {
 
     String TEST_OUTPUT = "test-output";
 
+    String ROCKET_OUTPUT = "rocket-output";
+
     String TEST_INPUT = "test-input";
 
     @Output(MessageService.TEST_OUTPUT)
     MessageChannel testOutput();
+
+    @Output(MessageService.ROCKET_OUTPUT)
+    MessageChannel rocketOutput();
 
     @Input(MessageService.TEST_INPUT)
     SubscribableChannel testInput();

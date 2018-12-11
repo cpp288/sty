@@ -32,4 +32,13 @@ public class ProducerController {
                 .setHeader("charset-encoding", "utf-8").build());
     }
 
+    /**
+     * rocket mq
+     *
+     * @param messageData
+     */
+    @PostMapping("/rocket/send")
+    public void sendByRocketMq(@RequestBody MessageData messageData) {
+        messageService.rocketOutput().send(MessageBuilder.withPayload(messageData).build());
+    }
 }

@@ -9,30 +9,20 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>stream-source</artifactId>
+    <artifactId>spring-cloud-starter-stream-rocket</artifactId>
 
     <dependencies>
 
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-stream-rabbit</artifactId>
+            <artifactId>spring-cloud-stream</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
+            <groupId>org.apache.rocketmq</groupId>
+            <artifactId>rocketmq-client</artifactId>
+            <version>4.3.2</version>
         </dependency>
 
-        <dependency>
-            <groupId>com.cpp</groupId>
-            <artifactId>stream-common</artifactId>
-            <version>1.0.0</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.cpp</groupId>
-            <artifactId>spring-cloud-starter-stream-rocket</artifactId>
-            <version>1.0.0</version>
-        </dependency>
     </dependencies>
 </project>

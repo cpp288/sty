@@ -75,6 +75,17 @@ public class SinkSamplesApplication {
     }
 
     /**
+     * rocket mq 接收消息
+     *
+     * @param msg
+     */
+    @StreamListener(MessageService.ROCKET_INPUT)
+    public void onMessageRocket(Message<MessageData> msg) {
+        MessageData message = msg.getPayload();
+        System.out.printf("[rocket mq]接收到消息：%s\n", message);
+    }
+
+    /**
      * 反馈消息
      *
      * @param msg

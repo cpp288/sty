@@ -27,6 +27,8 @@ spring:
             instanceIndex: 1
         test-output:
           destination: testExchange2
+        rocket-input:
+          binder: rocket
       # 表示消息分区的消费端节点数量为2个
 #      instance-count: 2
       # 该参数设置消费端实例的索引号，索引号从0开始。这里设置该节点的索引号为0

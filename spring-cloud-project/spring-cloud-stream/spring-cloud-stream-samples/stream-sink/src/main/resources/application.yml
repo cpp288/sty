@@ -13,6 +13,7 @@ spring:
   cloud:
     ##### spring cloud stream 配置 #####
     stream:
+      defaultBinder: rabbit
       bindings:
         test-input:
           destination: testExchange

@@ -13,8 +13,12 @@ spring:
   cloud:
     ##### spring cloud stream 配置 #####
     stream:
+      # 默认 binder
+      defaultBinder: rabbit
       bindings:
         test-output:
+          # 指定 binder
+#          binder: rabbit
           destination: testExchange
           content-type: application/json
           producer:

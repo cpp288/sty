@@ -1,0 +1,37 @@
+server:
+  port: 8888
+spring:
+  application:
+    name: sink-samples
+  ##### rabbitmq 服务配置 #####
+  rabbitmq:
+    host: 106.12.95.51
+    port: 5672
+    username: chenjian
+    password: 123456
+    virtual-host: /
+  cloud:
+    ##### spring cloud stream 配置 #####
+    stream:
+      bindings:
+        test-input:
+          destination: testExchange
+          group: customTestQueue
+          content-type: application/json
+          consumer:
+            # 表示启用消息分区功能
+            partitioned: true
+        test-output:
+          destination: testExchange2
+      # 表示消息分区的消费端节点数量为2个
+      instance-count: 2
+      # 该参数设置消费端实例的索引号，索引号从0开始。这里设置该节点的索引号为0
+      instance-index: 1
+      ##### rabbitmq consumer 相关设置 #####
+      # 消费失败的消息放入dlq队列
+#      rabbit:
+#        bindings:
+#          test-input:
+#            consumer:
+#              autoBindDlq: true
+#              republishToDlq: true

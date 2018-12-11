@@ -1,0 +1,27 @@
+server:
+  port: 7777
+spring:
+  application:
+    name: source-samples
+  ##### rabbitmq 服务配置 #####
+  rabbitmq:
+    host: 106.12.95.51
+    port: 5672
+    username: chenjian
+    password: 123456
+    virtual-host: /
+  cloud:
+    ##### spring cloud stream 配置 #####
+    stream:
+      bindings:
+        test-output:
+          destination: testExchange
+          content-type: application/json
+          producer:
+            # 指定参与消息分区的消费端节点数量为2个
+            partitionCount: 2
+            # 表示只有分区ID为1的消费端能接收到信息，这里可以自定义分区策略
+            partitionKeyExpression: payload.id % 2
+        test-input:
+          destination: testExchange2
+          group: testQueue2

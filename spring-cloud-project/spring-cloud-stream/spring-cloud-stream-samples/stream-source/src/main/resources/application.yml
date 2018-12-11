@@ -29,3 +29,15 @@ spring:
         test-input:
           destination: testExchange2
           group: testQueue2
+      # 配置多个消息队列服务
+#      binders:
+#        rabbit1:
+#          type: rabbit
+#          environment:
+#            spring:
+#              rabbitmq:
+#                host: 106.12.95.51
+#                port: 5672
+#                username: chenjian
+#                password: 123456
+#                virtual-host: /

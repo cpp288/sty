@@ -68,3 +68,6 @@ spring cloud 服务注册中心
 参考博客
 1. https://www.cnblogs.com/yjmyzz/p/replace-eureka-with-consul.html
 1. 参考spring官方文档
+
+## Nacos
+官网文档很详细：https://nacos.io

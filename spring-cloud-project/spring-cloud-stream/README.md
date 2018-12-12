@@ -27,6 +27,9 @@ Spring Cloud Stream由一个中间件中立的核组成。应用通过Spring Clo
 
 ## Spring cloud stream 整合 RocketMQ
 ### 实现步骤
+
+![stream整合](image/Spring cloud stream binder.png)
+
 参考官网：
 * A class that implements the Binder interface; （实现 Binder  接口）
 * A Spring @Configuration class that creates a bean of type Binder along with the middleware connection infrastructure.（Binder 实现类上标注 @Configuration 注解）

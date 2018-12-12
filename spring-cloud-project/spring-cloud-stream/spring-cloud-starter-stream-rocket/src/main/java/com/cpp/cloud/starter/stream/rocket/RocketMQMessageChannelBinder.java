@@ -36,7 +36,7 @@ public class RocketMQMessageChannelBinder implements Binder<MessageChannel, Cons
 
     private static final String TAG = "TEST_TAG";
 
-    private static final String NAME_ADDRESS = "106.12.95.51:9876";
+    private static final String NAME_ADDRESS = "192.168.173.83:9876";
 
     @Override
     public Binding<MessageChannel> bindConsumer(String name,

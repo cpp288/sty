@@ -19,6 +19,7 @@
         <module>spring-cloud-feign</module>
         <module>spring-cloud-gateway</module>
         <module>spring-cloud-bus</module>
+        <module>spring-cloud-configuration</module>
     </modules>
 
     <properties>

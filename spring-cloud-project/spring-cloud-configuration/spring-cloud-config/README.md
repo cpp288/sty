@@ -1,4 +1,5 @@
-# spring cloud config原理分析
+# spring cloud config
+## server原理分析
 启动 spring cloud config 注解 `@EnableConfigServer`
 
 ```java

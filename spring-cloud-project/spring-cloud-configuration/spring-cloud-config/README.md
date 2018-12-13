@@ -91,5 +91,5 @@ class DefaultRepositoryConfiguration {
 
 这样我们就可以通过自定义 `EnvironmentRepository` Bean来自定义实现配置源，具体看代码
 
-通过http请求：/${application}/${profile}/${label}
+通过http请求：`/${application}/${profile}/${label}`
 

@@ -1,3 +1,13 @@
+
+* [git status](#git-status)
+* [HEAD、master 与 branch](#head、master-与-branch)
+  * [HEAD](#head)
+  * [master](#master)
+  * [branch](#branch)
+    * [切换branch](#切换branch)
+    * [删除branch](#删除branch)
+
+
 # git status
 查看当前版本状态
 
@@ -22,7 +32,7 @@
 ## branch
 对 commit 的引用
 
-引用的本质
+引用的本质：
 
 >所谓「引用」（reference），其实就是一个个的字符串。这个字符串可以是一个 `commit` 的 SHA-1 码（例：`c08de9a`），也可以是一个 `branch`（例：`ref: refs/heads/xxx）。
 

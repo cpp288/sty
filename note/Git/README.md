@@ -1,126 +1,77 @@
-# git status
+* [git 区域划分](#git-区域划分)
+* [rebase](#rebase)
+* [reset](#reset)
+* [revert](#revert)
+  * [git revert 和 git reset的区别](#git-revert-和-git-reset的区别)
+* [stash](#stash)
+* [commit](#commit)
+  * [git commit --amend](#git-commit---amend)
 
-查看当前版本状态
-
-## git 区域划分
+# git 区域划分
 
 git 分为三个区域：
 
 1. 工作区（工作目录）
 2. 暂存区（`git add` 命令会将我们做的修改添加到 `暂存区` 中 ）
-3. 本地仓库区（`git commit `执行时，会提交  `暂存区` 的内容）
+3. 本地库（`git commit `执行时，会提交  `暂存区` 的内容）
 
 ![](./image/partition.png)
 
-# HEAD、master 与 branch
+# rebase
 
-## HEAD
+- [官网](https://git-scm.com/docs/git-rebase)
 
-当前 commit 的引用
+- 相关博客
+  - https://www.jianshu.com/p/4a8f4af4e803
+  - https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/0015266568413773c73cdc8b4ab4f9aa9be10ef3078be3f000
 
-## master
+# reset 
 
-默认 branch
+1. `--hard`：重置位置的同时，清空工作目录的所有改动；
+2. `--soft`：重置位置的同时，保留工作目录和暂存区的内容，并把重置 `HEAD` 的位置所导致的新的文件差异放进暂存区。
+3. `--mixed`（默认）：重置位置的同时，保留工作目录的内容，并清空暂存区。
 
-> master，其实是一个特殊的 `branch`：它是 Git 的默认 `branch`
 
-所谓的「默认 branch」，主要有两个特点：
 
-1. 新创建的 repository（仓库）是没有任何 `commit` 的。但在它创建第一个 `commit` 时，会把 `master` 指向它，并把 `HEAD` 指向 `master`。
+在 Git 中，有两个「偏移符号」： `^` 和 `~`。
 
-![](./image/master.png)
+- `^` 的用法：在 `commit` 的后面加一个或多个 `^` 号，可以把 `commit` 往回偏移，偏移的数量是 `^` 的数量。例如：`master^` 表示 `master` 指向的 `commit` 之前的那个 `commit`； `HEAD^^` 表示 `HEAD` 所指向的 `commit` 往前数两个 `commit`。
 
-1. 当有人使用 `git clone` 时，除了从远程仓库把 `.git` 这个仓库目录下载到工作目录中，还会 `checkout` （签出） `master`（`checkout` 的意思就是把某个 `commit` 作为当前 `commit`，把 `HEAD` 移动过去，并把工作目录的文件内容替换成这个 `commit` 所对应的内容）。
+- `~` 的用法：在 `commit` 的后面加上 `~` 号和一个数，可以把 `commit` 往回偏移，偏移的数量是 `~` 号后面的数。例如：`HEAD~5` 表示 `HEAD` 指向的 `commit`往前数 5 个 `commit
 
-![](./image/clone.png)
+# revert
 
-## branch
+`git revert` 撤销某次操作，此次操作之前和之后的 commit 和 history 都会保留，并且把这次撤销作为一次最新的提交
 
-对 commit 的引用
+- git revert HEAD                  撤销前一次 commit
+- git revert HEAD^               撤销前前一次 commit
+- git revert commit （比如：fa042ce57ebbe5bb9c8db709f719cec2c58ee7ff）撤销指定的版本，撤销也会作为一次提交进行保存。
 
-引用的本质：
+`git revert` 是提交一个新的版本，将需要 revert 的版本的内容再反向修改回去，版本会递增，不影响之前提交的内容
 
-> 所谓「引用」（reference），其实就是一个个的字符串。这个字符串可以是一个 `commit` 的 SHA-1 码（例：`c08de9a`），也可以是一个 `branch`（例：`ref: refs/heads/xxx）。`
->
->  `Git 中的 `HEAD` 和每一个 `branch` 以及其他的引用，都是以文本文件的形式存储在本地仓库 `.git` 目录中，而 Git 在工作的时候，就是通过这些文本文件的内容来判断这些所谓的「引用」是指向谁的。
+## git revert 和 git reset的区别 
 
-`branch` 理解为从初始 `commit` 到 `branch` 所指向的 `commit` 之间的所有 `commit`s 的一个「串」
+1. `git revert` 是用一次新的 commit 来回滚之前的 commit ，`git reset` 是直接删除指定的 commit。 
+2. 在回滚这一操作上看，效果差不多。但是在日后继续 merge 以前的老版本时有区别。因为 `git revert` 是用一次逆向的 commit “中和”之前的提交，因此日后合并老的 branch 时，导致这部分改变不会再次出现，但是 `git reset` 是之间把某些 commit 在某个 branch 上删除，因而和老的 branch 再次 merge 时，这些被回滚的 commit 应该还会被引入。 
+3. `git reset` 是把HEAD向后移动了一下，而 `git revert` 是 HEAD 继续前进，只是新的 commit 的内容和要 revert 的内容正好相反，能够抵消要被 revert 的内容。
 
-1. 所有的 `branch` 之间都是平等的。
+# stash
 
-![](./image/branch.png)
+能够将所有未提交的修改（工作区和暂存区）保存至堆栈中，用于后续恢复当前工作目录
 
-1. `branch` 包含了从初始 `commit` 到它的所有路径，而不是一条路径。并且，这些路径之间也是彼此平等的。
+- git stash
+- git stash list
+- git stash pop
+- git stash apply
+- git stash clear
+- git stash show
+- git stash branch
 
-![](./image/branch01.png)
+参考：https://blog.csdn.net/stone_yw/article/details/80795669
 
-### 切换branch
+# commit
 
-```
-git checkout -b feature1
-....
-git commit 
-```
+## git commit --amend
 
-![](./image/checkout.png)
-
-```
-git checkout master
-....
-git commit 
-```
-
-![](./image/checkout01.png)
-
-### 删除branch
-
-```
-git branch -d feature1
-```
-
-![](./image/deletebranch.png)
-
-需要说明：
-
-1. `HEAD` 指向的 `branch` 不能删除。如果要删除 `HEAD` 指向的 `branch`，需要先用 `checkout` 把 `HEAD` 指向其他地方。
-
-2. 由于 Git 中的 `branch` 只是一个引用，所以删除 `branch` 的操作也只会删掉这个引用，并不会删除任何的 `commit`。  
-
-   > 不过如果一个 `commit` 不在任何一个 `branch` 的「路径」上，或者换句话说，如果没有任何一个 `branch` 可以回溯到这条 `commit`（也许可以称为野生 `commit`？），那么在一定时间后，它会被 Git 的回收机制删除掉。
-
-3. 出于安全考虑，没有被合并到 `master` 过的 `branch` 在删除时会失败（因为怕你误删掉「未完成」的 `branch` ）
-
-# push
-
-实质上，`push` 做的事是：把当前 `branch` 的位置（即它指向哪个 `commit`）上传到远端仓库，并把它的路径上的 `commit`s 一并上传。
-
-![](./image/push.png)
-
-## feature1提交
-
-```
-git checkout feature1
-git push origin feature1
-```
-
-![](./image/push01.png)
-
-# merge
-
-合并 commits，它做的事也是合并：指定一个 `commit`，把它合并到当前的 `commit` 来
-
-```
-git merge branch1
-```
-
-![](./image/merge.png)
-
-`merge` 有什么用：
-
-1. 合并分支
-
-   > 当一个 `branch` 的开发已经完成，需要把内容合并回去时，用 `merge` 来进行合并。
-
-2. `pull` 的内部操作
-
-   > 之前说过，`pull` 的实际操作其实是把远端仓库的内容用 `fetch` 取下来之后，用 `merge` 来合并。
+- 修改最后一次commit提交信息
+- 修改最后一次提交的文件

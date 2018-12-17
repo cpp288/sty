@@ -6,7 +6,7 @@
     <groupId>com.cpp</groupId>
     <artifactId>sty</artifactId>
     <packaging>pom</packaging>
-    <version>1.0.0-SNAPSHOTS</version>
+    <version>1.0.0</version>
     <modules>
         <module>java-8-concurrency</module>
         <module>spring-cloud-project</module>

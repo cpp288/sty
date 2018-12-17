@@ -1,3 +1,5 @@
+[toc]
+
 # git status
 查看当前版本状态
 

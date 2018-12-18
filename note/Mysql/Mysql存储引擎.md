@@ -1,11 +1,11 @@
 * [Mysql 存储引擎](#mysql-存储引擎)
   * [介绍](#介绍)
+  * [各存储引擎对比](#各存储引擎对比)
 * [CSV 存储引擎](#csv-存储引擎)
 * [Archive 存储引擎](#archive-存储引擎)
 * [Memory 存储引擎](#memory-存储引擎)
 * [Myisam 存储引擎](#myisam-存储引擎)
 * [InnoDB 存储引擎](#innodb-存储引擎)
-* [各存储引擎对比](#各存储引擎对比)
 
 # Mysql 存储引擎
 
@@ -20,6 +20,10 @@
   ```
   -rw-rw---- 1 mysql mysql  8586 12月  6 18:56 sys_user.frm
   ```
+
+## 各存储引擎对比
+
+查看官网：https://dev.mysql.com/doc/refman/5.7/en/storage-engines.html
 
 # CSV 存储引擎
 
@@ -126,7 +130,3 @@ Mysql5.5及以后版本的默认存储引擎
 2. 行级锁
 3. 聚集索引（主键索引）方式进行数据存储
 4. 支持外键关系保证数据完整性（尽量不要用）
-
-# 各存储引擎对比
-
-查看官网：https://dev.mysql.com/doc/refman/5.7/en/storage-engines.html

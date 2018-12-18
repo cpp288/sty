@@ -6,6 +6,8 @@
 * [stash](#stash)
 * [commit](#commit)
   * [git commit --amend](#git-commit---amend)
+  
+![](./image/git.png)
 
 # git 区域划分
 

@@ -12,6 +12,7 @@
         <module>spring-cloud-project</module>
         <module>base</module>
         <module>sharding-jdbc-simples</module>
+        <module>generator</module>
     </modules>
 
     <parent>

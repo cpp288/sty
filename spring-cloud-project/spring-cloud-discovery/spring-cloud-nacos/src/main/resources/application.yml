@@ -1,9 +1,0 @@
-server:
-  port: 8080
-spring:
-  application:
-    name: nacos-samples
-  cloud:
-    nacos:
-      discovery:
-        server-addr: 106.12.95.51:8848

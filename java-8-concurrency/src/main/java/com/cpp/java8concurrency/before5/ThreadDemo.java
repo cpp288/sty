@@ -23,12 +23,7 @@ public class ThreadDemo {
      * 普通线程
      */
     private static void normalThread() {
-        Thread thread = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                System.out.printf("[Thread : %s]Hello World...\n", Thread.currentThread().getName());
-            }
-        }, "Sub");
+        Thread thread = new Thread(() -> System.out.printf("[Thread : %s]Hello World...\n", Thread.currentThread().getName()), "Sub");
 
         thread.start();
 

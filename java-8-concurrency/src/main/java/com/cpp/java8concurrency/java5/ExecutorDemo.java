@@ -17,12 +17,7 @@ public class ExecutorDemo {
         // 执行器服务，线程池 ThreadPoolExecutor 是它的一种实现
         ExecutorService executor = Executors.newFixedThreadPool(1);
 
-        executor.execute(new Runnable() {
-            @Override
-            public void run() {
-                System.out.printf("[Thread : %s]Hello World...\n", Thread.currentThread().getName());
-            }
-        });
+        executor.execute(() -> System.out.printf("[Thread : %s]Hello World...\n", Thread.currentThread().getName()));
 
         // 合理的关闭线程池是非常重要的
         executor.shutdown();

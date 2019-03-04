@@ -26,6 +26,7 @@ public class FutureDemo {
         Future<String> future = executorService.submit(new Callable<String>() {
             @Override
             public String call() throws Exception {
+                double i = 1/0;
                 return "[Thread : " + Thread.currentThread().getName() + "]Hello World...";
             }
         });
@@ -36,9 +37,7 @@ public class FutureDemo {
         try {
             String v = future.get();
             System.out.println(v);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
+        } catch (InterruptedException | ExecutionException e) {
             e.printStackTrace();
         }
 

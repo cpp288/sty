@@ -58,9 +58,9 @@ public class CompletableFutureDemo {
             return "";
         });
 
-        while (!combinedCompletableFuture.isDone()) {
-
-        }
+//        while (!combinedCompletableFuture.isDone()) {
+//
+//        }
 
         String v = combinedCompletableFuture.get();
         System.out.println(v);

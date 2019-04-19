@@ -8,7 +8,6 @@
     <packaging>pom</packaging>
     <version>1.0.0</version>
     <modules>
-        <module>java-8-concurrency</module>
         <module>base</module>
         <module>sharding-jdbc-simples</module>
         <module>generator</module>

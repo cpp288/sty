@@ -7,7 +7,7 @@ import java.io.Serializable;
 import java.nio.ByteBuffer;
 
 /**
- * TODO
+ * java序列化pojo
  *
  * @author chenjian
  * @date 2019-04-22 15:41

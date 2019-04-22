@@ -39,7 +39,7 @@ public class TimeServer {
                     .option(ChannelOption.SO_BACKLOG, 1024)
                     // 绑定IO事件处理类，主要用于处理网络IO事件（例如记录之日、对消息进行编解码等）
                     .childHandler(new ChildChannelHandler());
-            // 绑定端口，同步等待成功，返回 ChannelFuture，类似于JDK的 java.util.concurrent.Future
+            // 绑定端口，同步等待成功，返回 ChannelFuture，类似于JDK的 jdk.util.concurrent.Future
             ChannelFuture f = b.bind(port).sync();
             // 等待服务端监听端口关闭
             f.channel().closeFuture().sync();
